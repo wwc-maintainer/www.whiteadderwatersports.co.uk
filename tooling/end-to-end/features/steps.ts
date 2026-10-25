@@ -5,16 +5,16 @@ import AxeBuilder from "@axe-core/playwright";
 
 const { Given, When, Then } = createBdd();
 
-Given("I have an open browser", async () => {
+Given("I have an open browser", () => {
   // Browser is automatically opened by Playwright test context
   // This step serves as a semantic placeholder for BDD readability
   return;
 });
 
 When("I navigate to {string}", async ({ page }, url) => {
-  await expect(checkHttpUrl(url)).toBeTruthy();
-  await page.goto(url);
-  // await page.screenshot({ path: "screenshot.png", fullPage: true });
+  expect(checkHttpUrl(url)).toBeTruthy();
+  const response = await page.goto(url);
+  expect(response?.ok()).toBe(true);
 });
 
 Then("I see {string} in the title", async ({ page }, keyword) => {

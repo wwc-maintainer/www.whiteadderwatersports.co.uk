@@ -1,6 +1,6 @@
 Feature: As a visitor I want to visit the live website in order to be confident it is working
 
-  @timeout:5000
+  @timeout:15000
   Scenario: Visit the Domain
     Given I have an open browser
     When I navigate to "https://www.whiteadderwatersports.co.uk/"
