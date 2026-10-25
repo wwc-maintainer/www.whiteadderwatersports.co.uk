@@ -12,7 +12,7 @@ Given("I have an open browser", async () => {
 });
 
 When("I navigate to {string}", async ({ page }, url) => {
-  expect(checkHttpUrl(url)).toBeTruthy();
+  await expect(checkHttpUrl(url)).toBeTruthy();
   await page.goto(url);
   // await page.screenshot({ path: "screenshot.png", fullPage: true });
 });
