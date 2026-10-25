@@ -105,7 +105,7 @@ importers:
         specifier: 4.6.7
         version: 4.6.7
 
-  tooling/playwright:
+  tooling/end-to-end:
     devDependencies:
       '@axe-core/playwright':
         specifier: 4.14.0
