@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "jsonata",
+      "fileFormat": "yaml",
+      "managerFilePatterns": ["/pnpm-workspace.yaml$/"],
+      "matchStrings": ["{ 'currentValue': nodeVersion }"],
+      "datasourceTemplate": "node-version",
+      "depNameTemplate": "node"
+    }
+  ],
+  "extends": [
+    "config:best-practices",
+    "schedule:nonOfficeHours",
+    ":gitSignOff"
+  ],
+  "internalChecksFilter": "strict",
+  "lockFileMaintenance": { "enabled": false },
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "groupName": "types-and-linters",
+      "matchDepTypes": ["devDependencies", "peerDependencies"],
+      "automerge": true,
+      "matchPackageNames": ["/@types/", "/lint/", "/prettier/"]
+    },
+    {
+      "matchManagers": ["mise"],
+      "groupName": "node-lockstep",
+      "matchPackageNames": ["/^node/"]
+    },
+    {
+      "matchManagers": ["custom.jsonata"],
+      "groupName": "node-lockstep",
+      "matchPackageNames": ["/^node/"]
+    }
+  ],
+  "pre-commit": {
+    "enabled": true
+  },
+  "postUpdateOptions": ["pnpmDedupe"],
+  "timezone": "Europe/London",
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  }
+}

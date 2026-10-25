@@ -1,0 +1,15 @@
+.turbo
+.env
+.env.*
+
+# Local Packages and Build Outputs
+.astro/
+dist/
+node_modules
+
+# Debugging
+pnpm-debug.log*
+*storybook.log
+
+# Miscellaneous
+.DS_Store

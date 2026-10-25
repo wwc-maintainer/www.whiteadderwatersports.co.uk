@@ -1,0 +1,29 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["CI"],
+  "ui": "tui",
+  "tasks": {
+    "browsers": {
+      "dependsOn": ["^browsers"]
+    },
+    "build": {
+      "dependsOn": ["^build", "check-types"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "ci": {
+      "dependsOn": ["build"]
+    },
+    "e2e": {
+      "dependsOn": ["^build", "browsers"],
+      "passThroughEnv": ["PLAYWRIGHT_TEST_BASE_URL"]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
