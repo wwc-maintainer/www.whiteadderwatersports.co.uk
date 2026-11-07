@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "oxfmt": "0.76.0",
-    "oxlint": "1.90.0",
+    "oxlint": "1.91.0",
     "prettier": "3.9.10",
     "prettier-plugin-astro": "1.1.2",
     "prettier-plugin-gherkin": "4.0.0",
